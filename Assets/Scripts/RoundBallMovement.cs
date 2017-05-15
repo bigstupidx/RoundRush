@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class RoundBallMovement : MonoBehaviour {
 
-	private enum BallTypes {
-		Yellow = 0,
-		Green = 1, 
-		Blue = 2,
-		Red = 3
-	}
-			
-	private BallTypes ballType;
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("In start");
