@@ -36,4 +36,12 @@ public class RoundBallMovement : MonoBehaviour {
 		
 		}
  	}
+
+//	void OnCollisionEnter2D(Collision2D collider)
+//	{
+//		if (collider.gameObject.tag == "Red" || collider.gameObject.tag == "Yellow" || collider.gameObject.tag == "Green" || collider.gameObject.tag == "Blue") {
+//
+//			Destroy (collider.gameObject);
+//		}
+//	}
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour {
 
-	public SpriteRenderer ballImage;
-
 	private enum BallTypes {
 		Yellow = 0,
 		Green = 1, 
@@ -25,6 +23,7 @@ public class BallMovement : MonoBehaviour {
 			ballType = BallTypes.Yellow;
 			Debug.Log ("In yellow");
 			GetComponent<SpriteRenderer>().color = Color.yellow;
+			gameObject.tag = "Yellow";
 //			ballImage.color = Color.green;
 //				new Color (248f,251f,30f,255f);
 		} 
@@ -34,6 +33,7 @@ public class BallMovement : MonoBehaviour {
 			Debug.Log ("In green");
 //			GetComponent<SpriteRenderer>().color = new Color (97f,184f,81f,255f);
 			GetComponent<SpriteRenderer>().color = Color.green;
+			gameObject.tag = "Green";
 //			ballImage.color = new Color (97f,184f,81f,255f);
 		}
 		else if (selectedBall == 2) {
@@ -41,6 +41,7 @@ public class BallMovement : MonoBehaviour {
 			ballType = BallTypes.Blue;
 			Debug.Log ("In blue");
 			GetComponent<SpriteRenderer>().color = Color.cyan;
+			gameObject.tag = "Blue";
 //			ballImage.color = new Color (8f,195f,255f,255f);
 		}
 		else if (selectedBall == 3) {
@@ -48,6 +49,7 @@ public class BallMovement : MonoBehaviour {
 			ballType = BallTypes.Red;
 			Debug.Log ("In red");
 			GetComponent<SpriteRenderer>().color = Color.red;
+			gameObject.tag = "Red";
 //			ballImage.color = new Color (255f,9f,45f,255f);
 		}
 		
@@ -56,5 +58,21 @@ public class BallMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.gameObject.tag == "Red" || collider.gameObject.tag == "Yellow" || collider.gameObject.tag == "Green" || collider.gameObject.tag == "Blue") {
+
+			Destroy (gameObject);
+		}
+		if (gameObject.tag == collider.gameObject.tag) {
+
+			Debug.Log (gameObject.tag);
+			Debug.Log (collider.gameObject.tag);
+			Debug.Log ("Same");
+		} else {
+			Debug.Log ("Different");
+		}
 	}
 }

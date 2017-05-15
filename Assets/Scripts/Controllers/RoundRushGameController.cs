@@ -39,7 +39,7 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 			);
 			Quaternion spawnRotation = Quaternion.identity;
 			Instantiate(ball, spawnPosition, spawnRotation);
-			yield return new WaitForSeconds(Random.Range(1.0f, 1.5f));
+			yield return new WaitForSeconds(Random.Range(2.0f, 2.5f));
 		}
 	}
 }
