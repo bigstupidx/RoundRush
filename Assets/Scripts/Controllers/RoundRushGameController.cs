@@ -16,7 +16,10 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 	{
 		ShouldAllowRoundMovement = true;
 		roundRushGameRef = roundRushGameReference;
+		roundRushGameRef.playerScoreLabel.gameObject.SetActive (true);
 		roundRushGameRef.gameObject.SetActive (true);
+		GameModel.Instance.SetUpGameVariables ();
+		UpdateScore ();
 		ballRoutine = StartCoroutine (SpawnBalls ());
 	}
 
@@ -41,5 +44,10 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 			Instantiate(ball, spawnPosition, spawnRotation);
 			yield return new WaitForSeconds(Random.Range(2.0f, 2.5f));
 		}
+	}
+
+	public void UpdateScore ()
+	{
+		roundRushGameRef.playerScoreLabel.text = "Score: " + GameModel.Instance.Score.ToString();
 	}
 }

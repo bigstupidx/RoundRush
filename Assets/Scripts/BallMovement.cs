@@ -70,9 +70,11 @@ public class BallMovement : MonoBehaviour {
 
 			Debug.Log (gameObject.tag);
 			Debug.Log (collider.gameObject.tag);
+			GameModel.Instance.Score++;
+			RoundRushGameController.Instance.UpdateScore ();
 			Debug.Log ("Same");
 		} else {
-			Debug.Log ("Different");
+			Debug.Log ("Game Over");
 		}
 	}
 }
