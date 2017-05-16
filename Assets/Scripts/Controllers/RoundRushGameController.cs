@@ -24,9 +24,11 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 		roundRushGameRef = roundRushGameReference;
 		roundRushGameRef.roundColouredBall.gameObject.SetActive (true);
 		roundRushGameRef.playerScoreLabel.gameObject.SetActive (true);
+		roundRushGameRef.bestScore.gameObject.SetActive (true);
 		roundRushGameRef.gameObject.SetActive (true);
 		GameModel.Instance.SetUpGameVariables ();
 		UpdateScore ();
+		UpdateBestScore ();
 		ballRoutine = StartCoroutine (SpawnBalls ());
 	}
 
@@ -34,6 +36,7 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 	{
 		IsGameOver = true;
 		roundRushGameRef.roundColouredBall.gameObject.SetActive (false);
+		roundRushGameRef.bestScore.gameObject.SetActive (false);
 		roundRushGameRef.gameObject.SetActive (false);
 		if(ballRoutine != null)
 			StopCoroutine (ballRoutine);
@@ -60,5 +63,10 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 	public void UpdateScore ()
 	{
 		roundRushGameRef.playerScoreLabel.text = "Score: " + GameModel.Instance.Score.ToString();
+	}
+
+	public void UpdateBestScore()
+	{
+		roundRushGameRef.bestScore.text = "BEST: " + GameModel.Instance.BestScore.ToString (); 
 	}
 }

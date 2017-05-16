@@ -8,4 +8,5 @@ public class RoundRushGameReferences : MonoBehaviour {
 	public GameObject roundColouredBall;
 	public GameObject balls;
 	public Text playerScoreLabel;
+	public Text bestScore;
 }
