@@ -27,4 +27,10 @@ public class GameController : Singleton<GameController> {
 		RoundRushGameController.Instance.HideRoundRushGameScreen ();
 		GameOverScreenController.Instance.ShowGameOverScreen (gameRef.gameOverScreenRef);
 	}
+
+	public void OpenRoundRushGameScreen ()
+	{
+		GameOverScreenController.Instance.HideGameOverScreen ();
+		RoundRushGameController.Instance.ShowRoundRushGameScreen (gameRef.roundRushGameRef);
+	}
 }

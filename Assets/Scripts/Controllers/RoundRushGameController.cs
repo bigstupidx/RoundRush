@@ -12,9 +12,15 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 		set;
 	}
 
+	public bool IsGameOver {
+		get;
+		set;
+	}
+
 	public void ShowRoundRushGameScreen(RoundRushGameReferences roundRushGameReference)
 	{
 		ShouldAllowRoundMovement = true;
+		IsGameOver = false;
 		roundRushGameRef = roundRushGameReference;
 		roundRushGameRef.roundColouredBall.gameObject.SetActive (true);
 		roundRushGameRef.playerScoreLabel.gameObject.SetActive (true);
@@ -26,14 +32,17 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 
 	public void HideRoundRushGameScreen()
 	{
+		IsGameOver = true;
 		roundRushGameRef.roundColouredBall.gameObject.SetActive (false);
 		roundRushGameRef.gameObject.SetActive (false);
+		if(ballRoutine != null)
+			StopCoroutine (ballRoutine);
 	}
 
 	IEnumerator SpawnBalls()
 	{
 		yield return new WaitForSeconds (1.0f);
-		while (true) {
+		while (!IsGameOver) {
 			GameObject ball = roundRushGameRef.balls;
 //			float[] x_values = { -2.3f,-2.0f,-1.5f,-1.0f,-0.5f,0.0f,0.5f,1.0f,1.5f,2.0f, 2.3f };
 			float x_value = 0.0f;
