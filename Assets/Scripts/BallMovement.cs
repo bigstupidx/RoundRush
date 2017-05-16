@@ -75,6 +75,7 @@ public class BallMovement : MonoBehaviour {
 			Debug.Log ("Same");
 		} else {
 			Debug.Log ("Game Over");
+			GameController.Instance.OpenGameOverScreen ();
 		}
 	}
 }

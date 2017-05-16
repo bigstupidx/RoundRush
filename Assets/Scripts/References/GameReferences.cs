@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameReferences : MonoBehaviour {
 
 	public RoundRushGameReferences roundRushGameRef;
+	public GameOverScreenReferences gameOverScreenRef;
 }

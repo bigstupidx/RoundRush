@@ -21,4 +21,10 @@ public class GameController : Singleton<GameController> {
 		gameRef = gameContextObject.GetComponent<GameReferences> ();
 		RoundRushGameController.Instance.ShowRoundRushGameScreen (gameRef.roundRushGameRef);
 	}
+
+	public void OpenGameOverScreen ()
+	{
+		RoundRushGameController.Instance.HideRoundRushGameScreen ();
+		GameOverScreenController.Instance.ShowGameOverScreen (gameRef.gameOverScreenRef);
+	}
 }

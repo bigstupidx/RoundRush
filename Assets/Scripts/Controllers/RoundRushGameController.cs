@@ -16,6 +16,7 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 	{
 		ShouldAllowRoundMovement = true;
 		roundRushGameRef = roundRushGameReference;
+		roundRushGameRef.roundColouredBall.gameObject.SetActive (true);
 		roundRushGameRef.playerScoreLabel.gameObject.SetActive (true);
 		roundRushGameRef.gameObject.SetActive (true);
 		GameModel.Instance.SetUpGameVariables ();
@@ -25,6 +26,7 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 
 	public void HideRoundRushGameScreen()
 	{
+		roundRushGameRef.roundColouredBall.gameObject.SetActive (false);
 		roundRushGameRef.gameObject.SetActive (false);
 	}
 
