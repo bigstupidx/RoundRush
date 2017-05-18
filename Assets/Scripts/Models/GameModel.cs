@@ -17,6 +17,11 @@ public class GameModel: Singleton <GameModel>
 		set{bestScore = value;}
 	}
 
+	public int GameCount {
+		get;
+		set;
+	}
+
 	public void SetUpGameVariables()
 	{
 		this.Score = 0;

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using ChartboostSDK;
 
 public class GameController : Singleton<GameController> {
 
@@ -34,7 +35,12 @@ public class GameController : Singleton<GameController> {
 
 	public void OpenGameOverScreen ()
 	{
+		PlayerPrefs.SetInt ("GameCount", GameModel.Instance.GameCount);
 		RoundRushGameController.Instance.HideRoundRushGameScreen ();
+		if (GameModel.Instance.GameCount % 3 == 0) {
+			Debug.Log ("Show Ad");
+			Chartboost.showInterstitial(CBLocation.HomeScreen);
+		}
 		GameOverScreenController.Instance.ShowGameOverScreen (gameRef.gameOverScreenRef);
 	}
 

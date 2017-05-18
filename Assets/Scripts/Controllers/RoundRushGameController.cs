@@ -29,6 +29,7 @@ public class RoundRushGameController : Singleton<RoundRushGameController> {
 		GameModel.Instance.SetUpGameVariables ();
 		UpdateScore ();
 		UpdateBestScore ();
+		GameModel.Instance.GameCount++;
 		ballRoutine = StartCoroutine (SpawnBalls ());
 	}
 
