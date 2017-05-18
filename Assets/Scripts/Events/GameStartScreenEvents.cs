@@ -8,4 +8,16 @@ public class GameStartScreenEvents : MonoBehaviour {
 	{
 		GameController.Instance.PlayGame ();
 	}
+
+	public void SoundButtonPressed()
+	{
+	}
+
+	public void ShareButtonPressed()
+	{
+	}
+
+	public void LeaderBoardButtonPressed ()
+	{
+	}
 }
