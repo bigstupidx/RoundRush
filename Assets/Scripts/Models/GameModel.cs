@@ -22,6 +22,10 @@ public class GameModel: Singleton <GameModel>
 		set;
 	}
 
+	public int AdGameCount {
+		get;
+		set;
+	}
 	public void SetUpGameVariables()
 	{
 		this.Score = 0;
@@ -29,6 +33,11 @@ public class GameModel: Singleton <GameModel>
 			bestScore = PlayerPrefs.GetInt ("BestScore");
 		}  else {
 			bestScore = 0;
+		}
+		if (PlayerPrefs.HasKey ("GameCount")) {
+			this.GameCount = PlayerPrefs.GetInt ("GameCount");
+		}  else {
+			this.GameCount = 0;
 		}
 	}
 }

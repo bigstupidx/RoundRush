@@ -35,9 +35,16 @@ public class GameController : Singleton<GameController> {
 
 	public void OpenGameOverScreen ()
 	{
+		if (GameModel.Instance.Score > GameModel.Instance.BestScore) {
+			GameModel.Instance.BestScore = GameModel.Instance.Score;
+			PlayerPrefs.SetInt ("BestScore", GameModel.Instance.BestScore);
+		}
 		PlayerPrefs.SetInt ("GameCount", GameModel.Instance.GameCount);
+		GameModel.Instance.AdGameCount = GameModel.Instance.GameCount;
 		RoundRushGameController.Instance.HideRoundRushGameScreen ();
-		if (GameModel.Instance.GameCount % 3 == 0) {
+		if (GameModel.Instance.AdGameCount % 3 == 0) {
+			GameModel.Instance.AdGameCount = 0;
+			Debug.Log (GameModel.Instance.AdGameCount);
 			Debug.Log ("Show Ad");
 			Chartboost.showInterstitial(CBLocation.HomeScreen);
 		}

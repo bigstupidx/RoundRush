@@ -9,6 +9,12 @@ public class GameOverScreenController : Singleton<GameOverScreenController> {
 	public void ShowGameOverScreen(GameOverScreenReferences gameOverScreenReferences)
 	{
 		gameOverScreenRef = gameOverScreenReferences;
+		gameOverScreenRef.playerScoreLabel.gameObject.SetActive (true);
+		gameOverScreenRef.bestScore.gameObject.SetActive (true);
+		gameOverScreenRef.gameCountLabel.gameObject.SetActive (true);
+		UpdateScore ();
+		UpdateBestScore ();
+		UpdateGameCount ();
 		gameOverScreenRef.gameObject.SetActive (true);
 	}
 
@@ -16,4 +22,20 @@ public class GameOverScreenController : Singleton<GameOverScreenController> {
 	{
 		gameOverScreenRef.gameObject.SetActive (false);
 	}
+
+	public void UpdateScore ()
+	{
+		gameOverScreenRef.playerScoreLabel.text = " " + GameModel.Instance.Score.ToString();
+	}
+
+	public void UpdateBestScore()
+	{
+		gameOverScreenRef.bestScore.text = " " + GameModel.Instance.BestScore.ToString (); 
+	}
+
+	public void UpdateGameCount ()
+	{
+		gameOverScreenRef.gameCountLabel.text = "Game Played Count: " + GameModel.Instance.GameCount.ToString ();
+	}
 }
+ 
