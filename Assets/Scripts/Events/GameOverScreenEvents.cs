@@ -8,4 +8,9 @@ public class GameOverScreenEvents : MonoBehaviour {
 	{
 		GameController.Instance.OpenRoundRushGameScreen ();
 	}
+
+	public void RateButtonTapped()
+	{
+		GameController.Instance.RateGame ();
+	}
 }

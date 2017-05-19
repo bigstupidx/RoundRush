@@ -37,5 +37,15 @@ public class GameOverScreenController : Singleton<GameOverScreenController> {
 	{
 		gameOverScreenRef.gameCountLabel.text = "Game Played Count: " + GameModel.Instance.GameCount.ToString ();
 	}
+
+	public void OnRateButtonClick()
+	{
+		Debug.Log ("InsideRate");
+		#if UNITY_ANDROID
+		Application.OpenURL("market://details?id=YOUR_APP_ID");
+		#elif UNITY_IPHONE
+		Application.OpenURL("itms-apps://itunes.apple.com/app/idYOUR_APP_ID");
+		#endif
+	}
 }
  

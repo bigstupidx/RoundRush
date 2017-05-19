@@ -11,6 +11,7 @@ public class GameStartScreenEvents : MonoBehaviour {
 
 	public void SoundButtonPressed()
 	{
+		GameController.Instance.SoundOnOff ();
 	}
 
 	public void ShareButtonPressed()

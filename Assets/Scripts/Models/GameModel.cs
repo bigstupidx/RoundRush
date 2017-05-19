@@ -26,6 +26,11 @@ public class GameModel: Singleton <GameModel>
 		get;
 		set;
 	}
+
+	public bool IsMusicOn {
+		get;
+		set;
+	}
 	public void SetUpGameVariables()
 	{
 		this.Score = 0;
@@ -39,5 +44,6 @@ public class GameModel: Singleton <GameModel>
 		}  else {
 			this.GameCount = 0;
 		}
+		IsMusicOn = true;
 	}
 }

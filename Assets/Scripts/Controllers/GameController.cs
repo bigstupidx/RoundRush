@@ -60,4 +60,14 @@ public class GameController : Singleton<GameController> {
 		GameOverScreenController.Instance.HideGameOverScreen ();
 		RoundRushGameController.Instance.ShowRoundRushGameScreen (gameRef.roundRushGameRef);
 	}
+
+	public void SoundOnOff ()
+	{
+		GameStartScreenController.Instance.ChangeSound ();
+	}
+
+	public void RateGame ()
+	{
+		GameOverScreenController.Instance.OnRateButtonClick();
+	}
 }

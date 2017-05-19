@@ -17,4 +17,15 @@ public class GameStartScreenController : Singleton<GameStartScreenController> {
 		gameStartScreenRef.gameObject.SetActive (false);
 	}
 
+	public void ChangeSound ()
+	{
+		if (GameModel.Instance.IsMusicOn) {
+			GameModel.Instance.IsMusicOn = false;
+			gameStartScreenRef.soundButton.image.sprite = Resources.Load<Sprite> ("soundOffIcon");
+		} else {
+			GameModel.Instance.IsMusicOn = true;
+			gameStartScreenRef.soundButton.image.sprite = Resources.Load<Sprite> ("soundOnIcon");
+		}
+	}
+
 }
