@@ -44,8 +44,6 @@ public class GameController : Singleton<GameController> {
 		RoundRushGameController.Instance.HideRoundRushGameScreen ();
 		if (GameModel.Instance.AdGameCount % 3 == 0) {
 			GameModel.Instance.AdGameCount = 0;
-			Debug.Log (GameModel.Instance.AdGameCount);
-			Debug.Log ("Show Ad");
 			Chartboost.showInterstitial(CBLocation.HomeScreen);
 		}
 		GameOverScreenController.Instance.ShowGameOverScreen (gameRef.gameOverScreenRef);
