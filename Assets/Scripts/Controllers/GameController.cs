@@ -20,6 +20,7 @@ public class GameController : Singleton<GameController> {
 		gameContextObject = gameObject;
 		IsUIOpened = false;
 		gameRef = gameContextObject.GetComponent<GameReferences> ();
+		LeaderboardManager.AuthenticateToGameCenter();
 		GameStartScreenController.Instance.ShowGameStartScreen (gameRef.gameStartScreenRef);
 	}
 
@@ -38,6 +39,9 @@ public class GameController : Singleton<GameController> {
 		if (GameModel.Instance.Score > GameModel.Instance.BestScore) {
 			GameModel.Instance.BestScore = GameModel.Instance.Score;
 			PlayerPrefs.SetInt ("BestScore", GameModel.Instance.BestScore);
+			if(GameModel.Instance.IsGameCenterAuthenticated) {
+				LeaderboardManager.ReportScore(GameModel.Instance.Score);
+			}
 		}
 		PlayerPrefs.SetInt ("GameCount", GameModel.Instance.GameCount);
 		GameModel.Instance.AdGameCount = GameModel.Instance.GameCount;

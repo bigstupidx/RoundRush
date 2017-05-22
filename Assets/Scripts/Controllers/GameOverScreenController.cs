@@ -41,11 +41,7 @@ public class GameOverScreenController : Singleton<GameOverScreenController> {
 	public void OnRateButtonClick()
 	{
 		Debug.Log ("InsideRate");
-		#if UNITY_ANDROID
-		Application.OpenURL("market://details?id=YOUR_APP_ID");
-		#elif UNITY_IPHONE
-		Application.OpenURL("itms-apps://itunes.apple.com/app/idYOUR_APP_ID");
-		#endif
+		Application.OpenURL(GameConstants.FB_LINK_SHARE_URL);
 	}
 }
  

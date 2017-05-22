@@ -34,12 +34,12 @@ public class GameStartScreenEvents : MonoBehaviour {
 
 	public void LeaderBoardButtonPressed ()
 	{
-		//if (!GameModel.Instance.IsGameCenterAuthenticated)
-		//{
-		//	LeaderboardManager.AuthenticateToGameCenter();
-		//	GameModel.Instance.IsLeaderboardTapped = true;
-		//}
-		//LeaderboardManager.ShowLeaderboard();
+		if (!GameModel.Instance.IsGameCenterAuthenticated)
+		{
+			LeaderboardManager.AuthenticateToGameCenter();
+			GameModel.Instance.IsLeaderboardTapped = true;
+		}
+		LeaderboardManager.ShowLeaderboard();
 	}
 
 	private void InitCallback()

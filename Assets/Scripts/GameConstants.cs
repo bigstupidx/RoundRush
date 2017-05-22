@@ -8,4 +8,6 @@ public class GameConstants {
 	#elif UNITY_IPHONE
 	public static string FB_LINK_SHARE_URL = "itms-apps://itunes.apple.com/app/idcom.dtlabs.roundrush";
 	#endif
+
+	public static string LEADERBOARD_ID = "com.roundrush.leaderboard";
 }
