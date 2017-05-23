@@ -2,7 +2,7 @@
 using UnityEngine.SocialPlatforms;
 using System.Collections;
 using System.Collections.Generic;
-//using GooglePlayGames;
+using GooglePlayGames;
 
 public class LeaderboardManager : MonoBehaviour {
 
@@ -10,10 +10,10 @@ public class LeaderboardManager : MonoBehaviour {
 	{
 		#if UNITY_ANDROID 
 		// recommended for debugging:
-//		PlayGamesPlatform.DebugLogEnabled = true;
+		PlayGamesPlatform.DebugLogEnabled = true;
 
 		// Activate the Google Play Games platform
-//		PlayGamesPlatform.Activate ();
+		PlayGamesPlatform.Activate ();
 		#endif
 	}
 
